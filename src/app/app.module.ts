@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './angular-material.module';
 import {AdministracionComponent} from './componentes/administracion/administracion.component';
 import {SidenavComponent} from './componentes/diseño/sidenav/sidenav.component';
+import {ExaminarVentasComponent} from './componentes/examinar-ventas/examinar-ventas.component';
 
 
 //Modules
@@ -26,6 +27,7 @@ import {JwtHelperService, JWT_OPTIONS} from '@auth0/angular-jwt';
     LoginComponent,
     AdministracionComponent,
     SidenavComponent,
+    ExaminarVentasComponent
   ],
   imports: [
     BrowserModule, 
