@@ -1,6 +1,6 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import {Factura,OperacionesFacturas} from 'src/app/Datos/Facturas';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,7 +25,7 @@ import {JwtHelperService, JWT_OPTIONS} from '@auth0/angular-jwt';
     FacturacionComponent,
     LoginComponent,
     AdministracionComponent,
-    SidenavComponent
+    SidenavComponent,
   ],
   imports: [
     BrowserModule, 
