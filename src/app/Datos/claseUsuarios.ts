@@ -1,5 +1,4 @@
-
-export class Usuario{
+export class Usuario /*implements Validator*/{
     Id:number;
     Nombre:string;
     Apellido:string;
@@ -14,6 +13,7 @@ export class Usuario{
         this.Rol = Rol;
         //this.Contra = Contra;
     }
+    
 
      validarCedula(cedula: string):Boolean {
       // Créditos: Victor Diaz De La Gasca.

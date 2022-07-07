@@ -15,16 +15,18 @@
             
           <!-- Ingreso del correo electrónico -->
             <mat-form-field class="example-full-width" appearance="outline" color="primary">
-            <input formControlName="Cedula" matInput placeholder="1809xxxxxx" id="Cedula" name="Cedula" [(ngModel)]="user.Cedula">
+            <input formControlName="Ced" matInput placeholder="1809xxxxxx" id="Cedula" name="Cedula" [(ngModel)]="user.Cedula">
             <mat-label>
               <!-- <i matSuffix class="fa-solid fa-envelope"></i>  -->
               <mat-icon class="icon-display" matSuffix>fingerprint</mat-icon>
                Número de cédula
             </mat-label>
-            <mat-error *ngIf="form.get('Cedula')">Numero de cedula incorrecta</mat-error>
+            <mat-error>Numero de cedula incorrecta</mat-error>
             <!-- <mat-error>La cédula es requerida</mat-error> -->
             <mat-hint>La cédula es obligatorio </mat-hint>
           </mat-form-field> 
+          <!-- {{form.errors?.valuesDoNotMatch}} -->
+          {{form.errors?.controlValuesCedula}}
           <!-- Ingreso de la contraseña -->
           <mat-form-field class="example-full-width" appearance="outline" color="primary">
             <input formControlName="Contra" matInput type="password"  placeholder="Contraseña" name="Contra" [(ngModel)]="user.Contra">
@@ -35,6 +37,7 @@
             <mat-error>La contraseña es requerida</mat-error>
             <mat-hint>La contraseña es obligatorio </mat-hint>
           </mat-form-field> 
+          
 
           <!-- <a href="#">Necesitas una cuenta?</a> -->
           <input type="submit" value="Iniciar Sesión" class="btn-login" (click)="login()">

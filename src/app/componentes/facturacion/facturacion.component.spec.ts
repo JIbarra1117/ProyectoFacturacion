@@ -6,6 +6,7 @@ describe('FacturacionComponent', () => {
   let component: FacturacionComponent;
   let fixture: ComponentFixture<FacturacionComponent>;
 
+  
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ FacturacionComponent ]

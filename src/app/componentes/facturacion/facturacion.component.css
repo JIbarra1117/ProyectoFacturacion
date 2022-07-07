@@ -1,3 +1,10 @@
 .example-spacer {
     flex: 1 1 auto;
   }
+
+  .myCard{
+    max-width: 400px; 
+    margin: auto; 
+    padding: 1em;
+    width: 33.3%;
+  }

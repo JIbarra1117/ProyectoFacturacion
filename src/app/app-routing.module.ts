@@ -10,12 +10,14 @@ import {SidenavComponent} from './componentes/diseño/sidenav/sidenav.component'
 import {RegistrarVentasComponent} from './componentes/registrar-ventas/registrar-ventas.component';
 import {ExaminarVentasComponent} from './componentes/examinar-ventas/examinar-ventas.component';
 
+
 const routes: Routes = [
   {path:'',component:LoginComponent},
   {path:'facturacion',component:SidenavComponent,canActivate:[AuthGuard],
     children:[
       {path:"", component: FacturacionComponent, canActivate:[AuthGuard]},
       {path:"examinar", component: ExaminarVentasComponent, canActivate:[AuthGuard]},
+      {path:"ingresar", component: RegistrarVentasComponent, canActivate:[AuthGuard]},
       {path:"ingresar", component: RegistrarVentasComponent, canActivate:[AuthGuard]}
     ]},
   {path:'administracion', component:AdministracionComponent, canActivate:[AuthGuard,RolesGuard],data:{expectedRole:'Administrador'},
