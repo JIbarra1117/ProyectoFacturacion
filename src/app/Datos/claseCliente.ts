@@ -1,17 +1,10 @@
-export class Cliente {
+export interface ClienteI {
     
-        Cedula:string;
-        Nombre:string; 
-        Apellido:string; 
-        Telefono:string; 
-        Domicilio:string;
-        
-        constructor(Cedula:string, Nombre:string, Apellido:string, Telefono:string, Domicilio:string){
-            this.Cedula=Cedula;
-            this.Nombre=Nombre;
-            this.Apellido=Apellido;
-            this.Telefono=Telefono;
-            this.Domicilio=Domicilio;
-        }
-    
+        Cedula:string,
+        Nombre:string, 
+        Nombre2:string,
+        Apellido:string,
+        Apellido2:string, 
+        Telefono:string,
+        Domicilio:string
 }

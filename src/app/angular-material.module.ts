@@ -15,6 +15,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import {MatDividerModule} from '@angular/material/divider';
+
 @NgModule({
   declarations: [],
   imports: [
@@ -34,7 +36,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatTableModule,
     MatPaginatorModule,
     MatDialogModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatDividerModule
   ],
   providers:[
     MatDatepickerModule

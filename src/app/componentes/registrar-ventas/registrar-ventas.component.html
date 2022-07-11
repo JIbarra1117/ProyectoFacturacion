@@ -1,18 +1,50 @@
 <!-- <p>registrar-ventas works!</p> -->
+<div class="_espacio"></div>
 <div class="generalDiseña">
 <form action="" class="formFactura">
     <div class="facturaDiseña">
     <mat-card >
         <mat-card-title>
-            <h1 style="font-size: larger;">FACTURA No. {{(selectedFactura$ |async)?.IDFactura}}</h1>
+            <h1 style="font-size: larger;">FACTURA </h1>
+            <mat-divider></mat-divider>
+            <h2>#{{(selectedFactura$ |async)?.IDFactura}}</h2>
         </mat-card-title>
         <mat-card-content>
-            <label>
-                Fecha realizada: 
-                <label >{{(initFactura.Fecha)?.toString()?.substring(0,10)}}</label>
-                <input name="fechaInput" id="fechaInput" type="date" [ngModel]="validarData().IDFactura" readonly >
+            <div class="tablaInfoFac">
                 
-            </label>
+                <mat-divider></mat-divider>
+                <table>
+                    
+                    <tr>
+                        <td>
+                            <label>Fecha realizada:</label>
+                        </td>
+                        
+                        <td>
+                            {{obtenerFecha()}}
+                            <!-- <input  name="fechaInput" id="fechaInput" type="text" [value]="obtenerFecha()" style="text-align: left;" readonly> -->
+                        </td>
+                    </tr>
+                    <tr >
+                        <td>
+                            <label>Empleado:</label>
+                        </td>
+                        <td>
+                            {{initEmpleado.Nombre+' '+ initEmpleado.Apellido}}
+                            <!-- <input  name="fechaInput" id="fechaInput" type="text" [value]="" style="text-align: left;" readonly> -->
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Cliente:</label>
+                        </td>
+                        <td>
+                            {{mejorarDataCliente()}}
+                            <!-- <input  name="fechaInput" id="fechaInput" type="text" [value]="obtenerFecha()" style="text-align: left;" readonly> -->
+                        </td>
+                    </tr>
+                </table>
+            </div>
         </mat-card-content>
     </mat-card>
     </div>
@@ -21,10 +53,165 @@
         <mat-card >
             <mat-card-title>
                 <h1 style="font-size: larger;">PRODUCTOS</h1>
+                <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+                    <!--- Note that these columns can be defined in any order.
+                          The actual rendered columns are set as a property on the row definition" -->
+                  
+                    <!-- Position Column -->
+                    <ng-container matColumnDef="Producto">
+                      <th mat-header-cell *matHeaderCellDef> Producto </th>
+                      <td mat-cell *matCellDef="let element"> {{element.Producto}} </td>
+                    </ng-container>
+                  
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="Cantidad">
+                      <th mat-header-cell *matHeaderCellDef> Cantidad </th>
+                      <td mat-cell *matCellDef="let element"> {{element.Cantidad}} </td>
+                    </ng-container>
+                  
+                    <!-- Weight Column -->
+                    <ng-container matColumnDef="Precio">
+                        <th mat-header-cell *matHeaderCellDef> Precio </th>
+                        <td mat-cell *matCellDef="let element"> {{element.Precio}} </td>
+                      </ng-container>
+                    
+                    <!-- Weight Column -->
+                    <ng-container matColumnDef="Importe">
+                    <th mat-header-cell *matHeaderCellDef> Importe </th>
+                    <td mat-cell *matCellDef="let element"> {{element.Precio*element.Cantidad}} </td>
+                    </ng-container>
+                
+                  
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                  </table>
             </mat-card-title>
             <mat-card-content>
+                <table class="table table-borderless factura">
+                    <thead>
+                    <tfoot>
+                        <tr>
+                          <th></th>
+                          <th></th>
+                          <th></th>
+                          <th>Subtotal <span style="color: green;">$</span></th>
+                          <th>{{calcularSubTotal()}}</th>
+                        </tr>
+                        <tr>
+                          <th></th>
+                          <th></th>
+                          <th></th>
+                          <th>Iva <span style="color: green;">$</span></th>
+                          <th>{{valorIvar()}}</th>
+                          <th></th>
+                        </tr>
+                        <tr>
+                          <th></th>
+                          <th></th>
+                          <th></th>
+                          <th>Total <span style="color: green;">$</span></th>
+                          <th>{{calcularTotal()}}</th>
+                        </tr>
+                    </tfoot>
+                  </table>
             </mat-card-content>
         </mat-card>
     </div>
 </form>
 </div>
+<!-- 
+<div id="app" class="col-11">
+
+    <h2>Factura</h2>
+
+    <div class="row my-3">
+      <div class="col-10">
+        <h1>Mil Pasos</h1>
+        <p>Av. Winston Churchill</p>
+        <p>Plaza Orleans 3er. nivel</p>
+        <p>local 312</p>
+      </div>
+      <div class="col-2">
+       
+      </div>
+    </div>
+  
+    <hr />
+  
+    <div class="row fact-info mt-3">
+      <div class="col-3">
+        <h5>Facturar a</h5>
+        <p>
+          Arian Manuel Garcia Reynoso
+        </p>
+      </div>
+      <div class="col-3">
+        <h5>Enviar a</h5>
+        <p>
+          Cotui, Sanchez Ramirez
+          Santa Fe, #19
+          arianmanuel75@gmail.com
+        </p>
+      </div>
+      <div class="col-3">
+        <h5>N° de factura</h5>
+        <h5>Fecha</h5>
+        <h5>Fecha de vencimiento</h5>
+      </div>
+      <div class="col-3">
+        <h5>103</h5>
+        <p>09/05/2019</p>
+        <p>09/05/2019</p>
+      </div>
+    </div>
+  
+    <div class="row my-5">
+      <table class="table table-borderless factura">
+        <thead>
+          <tr>
+            <th>Cant.</th>
+            <th>Descripcion</th>
+            <th>Precio Unitario</th>
+            <th>Importe</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Clases de Cha-Cha-Cha</td>
+            <td>3,000.00</td>
+            <td>3,000.00</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Clases de Salsa</td>
+            <td>4,000.00</td>
+            <td>12,000.00</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th></th>
+            <th></th>
+            <th>Total Factura</th>
+            <th>RD$15,000.00</th>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  
+    <div class="cond row">
+      <div class="col-12 mt-3">
+        <h4>Condiciones y formas de pago</h4>
+        <p>El pago se debe realizar en un plazo de 15 dias.</p>
+        <p>
+          Banco Banreserva
+          <br />
+          IBAN: DO XX 0075 XXXX XX XX XXXX XXXX
+          <br />
+          Código SWIFT: BPDODOSXXXX
+        </p>
+      </div>
+    </div>
+</div> -->

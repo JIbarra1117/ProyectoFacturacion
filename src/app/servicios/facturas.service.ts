@@ -26,7 +26,7 @@ export class FacturasService {
         var dato ={
           Pagado:Pagado
         }
-        return this.http.post<Factura[]>('/api/facturasPagadas',dato);
+        return this.http.post<Factura[]>('api/facturasPagadas',dato);
       //return datos; 
     }
 }

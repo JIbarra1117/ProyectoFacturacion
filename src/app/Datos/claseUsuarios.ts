@@ -102,3 +102,10 @@ export class Usuario /*implements Validator*/{
     }
 }
 
+export interface EmpleadoI{
+  Nombre:string;
+  Apellido:string;
+  Cedula:string;
+  Rol:string;
+  
+}
