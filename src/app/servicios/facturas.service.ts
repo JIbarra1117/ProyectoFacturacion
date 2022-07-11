@@ -29,4 +29,12 @@ export class FacturasService {
         return this.http.post<Factura[]>('api/facturasPagadas',dato);
       //return datos; 
     }
+
+    actualizarFac(idFac:number):Observable<boolean>{
+      var dato ={
+        IDFactura:idFac
+      }
+      return this.http.post<boolean>('api/actFactura',dato);
+
+    }
 }

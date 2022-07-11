@@ -8,6 +8,9 @@ import { EmpleadoI } from 'src/app/Datos/claseUsuarios';
 import { AuthService } from 'src/app/servicios/auth.service';
 import { ClientesService } from 'src/app/servicios/clientes.service';
 import { ClienteI } from 'src/app/Datos/claseCliente';
+import { Router } from '@angular/router';
+import { FacturasService } from 'src/app/servicios/facturas.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
 //Inicializar la factura
 
 export interface dataFac{
@@ -43,24 +46,31 @@ export class RegistrarVentasComponent implements OnInit {
    displayedColumns: string[] = ['Producto', 'Cantidad', 'Precio','Importe'];
    dataSource = new MatTableDataSource<ProductoFactI>([]);
 
-
+  //Validar datas
+    dataVal=true;
   constructor(
     private recibirFact:FacturaService, 
     private productosFac:ProductosService,
     private empleado:AuthService,
-    private cliente:ClientesService
+    private cliente:ClientesService,
+    private router:Router,
+    private fac:FacturasService,
+    private _snackBar: MatSnackBar
     )
     { 
     this.initFactura;
   }
   selectedFactura$ = this.recibirFact.selectedFactura$;
   
-  ngOnInit(): void {  
+  ngOnInit(): void {
+    if(this.dataVal){
+        
     this.getFactura();
     this.obtenerProductos();
     this.getValFactEdit();
     this.obtenerEmpleado();
     this.obtenerCliente();
+    }
     if(!this.comprobarEdicion){
       this.initFactura={IDFactura:0,IDCliente:'',IDTrabajador:'',Fecha:new Date(Date.now()),Hora:{hours:new Date().getHours(),minutes:new Date().getMinutes()},Pagado:false,Total:0,Subtotal:0,Iva:0.12};
     }
@@ -152,10 +162,14 @@ export class RegistrarVentasComponent implements OnInit {
         }
       );
   }
+  cont=0;
   obtenerProductos(){
     this.productosFac.obtenerProductosFactura(this.initFactura.IDFactura).subscribe((productos:ProductoFactI[])=>{
       console.log(productos);
+      this.cont++;
+      if(this.cont==1){
       this.listaProductos=productos;
+      }
       this.dataSource.data= productos;
     });
   }  
@@ -169,6 +183,13 @@ export class RegistrarVentasComponent implements OnInit {
     );
   }
   
+  actualizarFac(){
+    this.fac.actualizarFac(this.initFactura.IDFactura).subscribe(value=>{
+      console.log(value);
+    });
+  }
+
+
   /* Mejoramiento de datos que debvuelven nulls*/
   mejorarDataCliente():string{
     var data=this.initCliente;
@@ -205,4 +226,27 @@ export class RegistrarVentasComponent implements OnInit {
   valorIvar(){
     return (parseFloat(this.calcularSubTotal())*this.initFactura.Iva).toFixed(2);
   }
+
+  clickActuFact(){
+//    this.router.navigate(['facturacion/examinar']);
+    if(this.initFactura.IDFactura==0){
+      this.openSnackBar('No se puede Facturar!','Ok');
+      this.reloadComponent();
+    }else{
+    this.actualizarFac();
+    this.openSnackBar('Facturacion con éxito!','Ok');
+  }
+  }
+  reloadComponent() {
+      let currentUrl = this.router.url;
+      console.log(currentUrl);
+      this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+      this.router.onSameUrlNavigation = 'reload';
+      this.router.navigate([currentUrl]);
+    }
+
+
+    openSnackBar(message: string, action: string) {
+      this._snackBar.open(message,action);
+    }
 }
