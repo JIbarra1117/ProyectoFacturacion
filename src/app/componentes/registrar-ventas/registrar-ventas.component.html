@@ -1,1 +1,30 @@
-<p>registrar-ventas works!</p>
+<!-- <p>registrar-ventas works!</p> -->
+<div class="generalDiseña">
+<form action="" class="formFactura">
+    <div class="facturaDiseña">
+    <mat-card >
+        <mat-card-title>
+            <h1 style="font-size: larger;">FACTURA No. {{(selectedFactura$ |async)?.IDFactura}}</h1>
+        </mat-card-title>
+        <mat-card-content>
+            <label>
+                Fecha realizada: 
+                <label >{{(initFactura.Fecha)?.toString()?.substring(0,10)}}</label>
+                <input name="fechaInput" id="fechaInput" type="date" [ngModel]="validarData().IDFactura" readonly >
+                
+            </label>
+        </mat-card-content>
+    </mat-card>
+    </div>
+    <div class="_espacio"></div>
+    <div class="productoDiseño">
+        <mat-card >
+            <mat-card-title>
+                <h1 style="font-size: larger;">PRODUCTOS</h1>
+            </mat-card-title>
+            <mat-card-content>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</form>
+</div>

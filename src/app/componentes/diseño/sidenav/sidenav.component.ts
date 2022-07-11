@@ -4,6 +4,7 @@ import {ChangeDetectorRef, Component, OnInit,OnDestroy} from '@angular/core';
 import { Router } from '@angular/router';
 //Decodificar el token
 import decode from 'jwt-decode';
+import { min } from 'rxjs';
 @Component({
   selector: 'app-sidenav',
   templateUrl: './sidenav.component.html',
@@ -22,7 +23,7 @@ export class SidenavComponent implements OnInit {
       switch(this.usuario.Rol.toString()){
         case 'Administrador':
           this.fillerNav.push(
-            {name:"Examinar Ventas",route:"examinar",icon:"fact_check"},
+            {name:"Facturas pendientes",route:"examinar",icon:"fact_check"},
             {name:"Ingresar Ventas",route:"ingresar",icon:"data_thresholding"},
             {name:"Ingresar empleado",route:"ingresar",icon:"person_add"},
             {name:"Inventario",route:"ingresar",icon:"inventory_2"});
@@ -40,7 +41,43 @@ export class SidenavComponent implements OnInit {
           break;
       }
     }
+
+
+    //Prueba de reloj
+  function actual() {
+    let fecha=new Date(); //Actualizar fecha.
+    let hora=fecha.getHours(); //hora actual
+    let minuto=fecha.getMinutes(); //minuto actual
+    let segundo=fecha.getSeconds(); //segundo actual
+    let horaAux='',minAux='',segAux='';
+    if (hora<10) { //dos cifras para la hora
+      horaAux="0"+hora;
+    }else{
+      horaAux=hora.toString();
+    }
+    if (minuto<10) { //dos cifras para el minuto
+        minAux="0"+minuto;
+        }else{
+          minAux=minuto.toString();
+        }
+    if (segundo<10) { //dos cifras para el segundo
+        segAux="0"+segundo;
+        }else{
+          segAux=segundo.toString();
+        }
+    //ver en el recuadro del reloj:
+    var mireloj = horaAux+" : "+minAux+" : "+segAux;	
+    return mireloj; 
+    }
+  function actualizar() { //función del temporizador
+    var mihora=actual(); //recoger hora actual
+    var mireloj=document.getElementById("reloj"); //buscar elemento reloj
+    if(mireloj!=null)
+      mireloj.innerHTML=mihora; //incluir hora en elemento
+    
   }
+setInterval(actualizar,1000); //iniciar temporizador
+}
 
 
 

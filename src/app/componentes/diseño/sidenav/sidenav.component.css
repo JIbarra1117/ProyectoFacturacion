@@ -33,3 +33,21 @@
   .example-spacer {
     flex: 1 1 auto;
   }
+
+  .reloj { 
+    width: 166px; 
+    height: 30px; 
+    padding: 5px 10px; 
+    border-bottom: 1px solid white; 
+    font: bold 1.5em dotum, "lucida sans", arial; 
+    text-align: center;
+    float: right; 
+    margin: 1em 3em 1em 1em;
+    /*No permitir que marque con el mouse*/
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }

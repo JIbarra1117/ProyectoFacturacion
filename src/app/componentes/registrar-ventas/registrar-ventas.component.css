@@ -1,0 +1,17 @@
+.generalDiseña{
+    height: 250px;
+    /*IMPORTANTE*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.facturaDiseña{
+    width: 950px;
+}
+.productoDiseño{
+    width: 950px;
+}
+._espacio{
+    
+    height: 25px;
+}

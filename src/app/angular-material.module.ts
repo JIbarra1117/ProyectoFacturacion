@@ -12,12 +12,15 @@ import {MatListModule} from '@angular/material/list';
 import {MatCardModule} from '@angular/material/card';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
-
-
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule
+    CommonModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   exports:[
     MatInputModule,
@@ -29,7 +32,12 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatListModule,
     MatCardModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatDialogModule,
+    MatDatepickerModule
+  ],
+  providers:[
+    MatDatepickerModule
   ]
 })
 export class AngularMaterialModule { }

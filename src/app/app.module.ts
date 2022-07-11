@@ -11,7 +11,10 @@ import { AngularMaterialModule } from './angular-material.module';
 import {AdministracionComponent} from './componentes/administracion/administracion.component';
 import {SidenavComponent} from './componentes/diseño/sidenav/sidenav.component';
 import {ExaminarVentasComponent} from './componentes/examinar-ventas/examinar-ventas.component';
-
+import { RegistrarVentasComponent } from './componentes/registrar-ventas/registrar-ventas.component';
+import { CommonModule } from '@angular/common';
+//Dialogs
+import {FacturaSeleccionadaComponent} from './dialogs/factura-seleccionada/factura-seleccionada.component';
 
 //Modules
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
@@ -27,8 +30,11 @@ import {JwtHelperService, JWT_OPTIONS} from '@auth0/angular-jwt';
     LoginComponent,
     AdministracionComponent,
     SidenavComponent,
-    ExaminarVentasComponent
+    ExaminarVentasComponent,
+    FacturaSeleccionadaComponent,
+    RegistrarVentasComponent
   ],
+  entryComponents:[FacturaSeleccionadaComponent],
   imports: [
     BrowserModule, 
     AppRoutingModule, 
@@ -36,7 +42,8 @@ import {JwtHelperService, JWT_OPTIONS} from '@auth0/angular-jwt';
     AngularMaterialModule,//Este modulo obtiene todo el diseño de angular material
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CommonModule 
   ],
   providers: [
     {provide:JWT_OPTIONS,useValue:JWT_OPTIONS},
