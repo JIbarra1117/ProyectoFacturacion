@@ -20,6 +20,4 @@ export class FacturaSeleccionadaComponent implements OnInit {
     this.pasarFactura.setValidarFactura(val);
     this.router.navigate(['facturacion/ingresar']);
   }
-
-
 }

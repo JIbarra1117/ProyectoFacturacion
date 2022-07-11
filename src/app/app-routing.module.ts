@@ -10,6 +10,10 @@ import {SidenavComponent} from './componentes/diseño/sidenav/sidenav.component'
 import {RegistrarVentasComponent} from './componentes/registrar-ventas/registrar-ventas.component';
 import {ExaminarVentasComponent} from './componentes/examinar-ventas/examinar-ventas.component';
 import {FacturaSeleccionadaComponent} from './dialogs/factura-seleccionada/factura-seleccionada.component';
+import { ClienteComponent } from './componentes/cliente/cliente.component';
+import { InventarioComponent } from './componentes/inventario/inventario.component';
+import { EmpleadoComponent } from './componentes/empleado/empleado.component';
+
 
 const routes: Routes = [
   {path:'',component:LoginComponent},
@@ -19,7 +23,10 @@ const routes: Routes = [
       {path:"examinar", component: ExaminarVentasComponent, canActivate:[AuthGuard],
         children:[{path:"fac",component:FacturaSeleccionadaComponent}]},
       {path:"ingresar", component: RegistrarVentasComponent, canActivate:[AuthGuard]},
-      {path:"ingresar", component: RegistrarVentasComponent, canActivate:[AuthGuard]}
+      {path:"ingresar", component: RegistrarVentasComponent, canActivate:[AuthGuard]},
+      {path:"inventraio",component:InventarioComponent, canActivate:[AuthGuard]},
+      {path:"clientes",component:ClienteComponent,canActivate:[AuthGuard]},
+      {path: "empleados",component:EmpleadoComponent,canActivate:[AuthGuard]}
     ]},
   {path:'administracion', component:AdministracionComponent, canActivate:[AuthGuard,RolesGuard],data:{expectedRole:'Administrador'},
     children:[

@@ -12,11 +12,6 @@
 .productoDiseño{
     width: 950px;
 }
-._espacio{
-    
-    height: 25px;
-}
-
 table {
   width: 100%;
 }
@@ -85,7 +80,50 @@ table {
   }
   
   .example-button-container {
-    display: flex;
-    justify-content: center;
-    width: 120px;
+    width: auto;
+    position: absolute; 
+    left: 1240px; 
+    top: 80px; 
   }
+  .example-button-container2 {
+    
+    position: absolute; 
+    left: 1240px; 
+    top: 200px; 
+  }
+  ._espacio{
+    height: 20px;
+  }
+
+
+  .demo-table {
+    width: 100%;
+  }
+  
+  .mat-row .mat-cell {
+    border-bottom: 1px solid transparent;
+    border-top: 1px solid transparent;
+    cursor: pointer;
+  }
+  
+
+  
+  .dinero span{
+    text-align: left;
+    left: 20px;
+  }
+
+  .dinero label{
+    text-align: right;
+    right: 20px;
+  }
+
+  .money{
+    color: #85bb65;
+    text-align: right;
+    right: 15px;
+  }
+  .money span{
+    text-align: left;
+  }
+ 

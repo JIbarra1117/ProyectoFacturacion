@@ -25,8 +25,9 @@ export class SidenavComponent implements OnInit {
           this.fillerNav.push(
             {name:"Facturas pendientes",route:"examinar",icon:"fact_check"},
             {name:"Ingresar Ventas",route:"ingresar",icon:"data_thresholding"},
-            {name:"Ingresar empleado",route:"ingresar",icon:"person_add"},
-            {name:"Inventario",route:"ingresar",icon:"inventory_2"});
+            {name:"Ingresar empleado",route:"empleados",icon:"person_add"},
+            {name:"Inventario",route:"inventraio",icon:"inventory_2"},
+            {name:"Cliente",route:"clientes",icon:"inventory_2"});
           break;
         case 'Facturacion':
           this.fillerNav.push(

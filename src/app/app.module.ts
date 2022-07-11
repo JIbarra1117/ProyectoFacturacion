@@ -15,6 +15,9 @@ import { RegistrarVentasComponent } from './componentes/registrar-ventas/registr
 import { CommonModule } from '@angular/common';
 //Dialogs
 import {FacturaSeleccionadaComponent} from './dialogs/factura-seleccionada/factura-seleccionada.component';
+import{EliminarProductoComponent}from'./dialogs/eliminar-producto/eliminar-producto.component';
+import{SeleccionarClientesComponent}from'./dialogs/seleccionar-clientes/seleccionar-clientes.component';
+import{SeleccionarProductosComponent}from'./dialogs/seleccionar-productos/seleccionar-productos.component';
 
 //Modules
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
@@ -32,9 +35,16 @@ import {JwtHelperService, JWT_OPTIONS} from '@auth0/angular-jwt';
     SidenavComponent,
     ExaminarVentasComponent,
     FacturaSeleccionadaComponent,
-    RegistrarVentasComponent
+    RegistrarVentasComponent,
+    EliminarProductoComponent,
+    SeleccionarClientesComponent,
+    SeleccionarProductosComponent
   ],
-  entryComponents:[FacturaSeleccionadaComponent],
+  entryComponents:[
+    FacturaSeleccionadaComponent,
+    EliminarProductoComponent,
+    SeleccionarClientesComponent,
+    SeleccionarProductosComponent],
   imports: [
     BrowserModule, 
     AppRoutingModule, 

@@ -9,6 +9,7 @@ export interface ProductoI {
 }
 
 export interface ProductoFactI{
+    IDProducto:number,
     IDFactura:number,
     Producto:string, 
     Cantidad:number,

@@ -37,4 +37,9 @@ export class FacturasService {
       return this.http.post<boolean>('api/actFactura',dato);
 
     }
+
+    eliminarProductoFact(idFac:number,idProd:number):Observable<boolean>{
+        var data={IDFactura:idFac,IDProducto:idProd};
+        return this.http.post<boolean>('api/elimProdFact',data);
+    }
 }

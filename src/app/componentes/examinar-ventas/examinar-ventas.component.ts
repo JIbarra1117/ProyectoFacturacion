@@ -79,50 +79,50 @@ export class ExaminarVentasComponent implements OnInit {
     });
   }
 
-  cambiarDataFecha(fecha:string):string{
-    var año,mes,dia;
-    año=fecha.substring(0,4);
-    mes=fecha.substring(5,7);
-    dia=fecha.substring(8,10);
-    switch(parseInt(mes)){
+  cambiarDataFecha(fecha: string): string {
+    var año, mes, dia;
+    año = fecha.substring(0, 4);
+    mes = fecha.substring(5, 7);
+    dia = fecha.substring(8, 10);
+    switch (parseInt(mes)) {
       case 1:
-        return dia+'/Enero/'+año;
+        return dia + '/Enero/' + año;
         ;
       case 2:
-        return dia+'/Febrero/'+año;
+        return dia + '/Febrero/' + año;
         ;
       case 3:
-        return dia+'/Marzo/'+año;
+        return dia + '/Marzo/' + año;
         ;
       case 4:
-          return dia+'/Abril/'+año;
-          ;
+        return dia + '/Abril/' + año;
+        ;
       case 5:
-          return dia+'/Mayo/'+año;
-          ;
+        return dia + '/Mayo/' + año;
+        ;
       case 6:
-          return dia+'/Junio/'+año;
-          ;
+        return dia + '/Junio/' + año;
+        ;
       case 7:
-          return dia+'/Julio/'+año;
-          ;
+        return dia + '/Julio/' + año;
+        ;
       case 8:
-          return dia+'/Agosto/'+año;
-          ;
+        return dia + '/Agosto/' + año;
+        ;
       case 9:
-          return dia+'/Septiembre/'+año;
-            ;
+        return dia + '/Septiembre/' + año;
+        ;
       case 10:
-          return dia+'/Octubre/'+año;
-          ;
+        return dia + '/Octubre/' + año;
+        ;
       case 11:
-          return dia+'/Noviembre/'+año;
-          ;
+        return dia + '/Noviembre/' + año;
+        ;
       case 12:
-          return dia+'/Diciembre/'+año;
-          ;
+        return dia + '/Diciembre/' + año;
+        ;
       default:
-        return año+' '+mes+' '+dia;
+        return año + ' ' + mes + ' ' + dia;
     }
   }
 }
