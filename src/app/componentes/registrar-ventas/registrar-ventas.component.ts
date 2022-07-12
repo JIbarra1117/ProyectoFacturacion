@@ -15,6 +15,8 @@ import { Subscription, take } from 'rxjs';
 import { IfStmt } from '@angular/compiler';
 import { EliminarProductoComponent } from 'src/app/dialogs/eliminar-producto/eliminar-producto.component';
 import { MatDialog } from '@angular/material/dialog';
+import { SeleccionarProductosComponent } from 'src/app/dialogs/seleccionar-productos/seleccionar-productos.component';
+import { SeleccionarClientesComponent } from 'src/app/dialogs/seleccionar-clientes/seleccionar-clientes.component';
 //Inicializar la factura
 
 export interface dataFac {
@@ -312,20 +314,46 @@ export class RegistrarVentasComponent implements OnInit {
     return '';
   }
   eliminarProducto(a:ProdAuxI){
-    var data:ProductoFactI={ IDFactura:0,IDProducto:a.IDProducto,Cantidad:a.Cantidad,Precio:a.Precio,Producto:a.Producto}
+    var data:ProductoFactI={ IDFactura:this.initFactura.IDFactura,IDProducto:a.IDProducto,Cantidad:a.Cantidad,Precio:a.Precio,Producto:a.Producto}
     this.recibirFact.setProducto(data);
     console.log(a);
     this.openDialog('0','0');
     //this.recibirFact.
   }
+  editarProducto(a:ProdAuxI){
+    var data:ProductoFactI={ IDFactura:0,IDProducto:a.IDProducto,Cantidad:a.Cantidad,Precio:a.Precio,Producto:a.Producto}
+    this.recibirFact.setProducto(data);
+    console.log(a);
+    this.openDialogProducto('0','0');
+  }
   openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
     this.dialog.open(EliminarProductoComponent, {
-      width: '50%',
-      height:'75%',
+      width: '40%',
+      height:'40%',
       enterAnimationDuration,
       exitAnimationDuration,
     });
   }
+
+  openDialogProducto(enterAnimationDuration: string, exitAnimationDuration: string): void {
+    this.dialog.open(SeleccionarProductosComponent, {
+      width: '40%',
+      height:'40%',
+      enterAnimationDuration,
+      exitAnimationDuration,
+    });
+  }
+
+  
+  openDialogClientes(enterAnimationDuration: string, exitAnimationDuration: string): void {
+    this.dialog.open(SeleccionarClientesComponent, {
+      width: '40%',
+      height:'40%',
+      enterAnimationDuration,
+      exitAnimationDuration,
+    });
+  }
+
 }
 
 export interface ProdAuxI{

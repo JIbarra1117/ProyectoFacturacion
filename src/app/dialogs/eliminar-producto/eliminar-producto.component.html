@@ -4,9 +4,8 @@
 
     <div mat-dialog-content>Cantidad: {{(producto$|async)?.Cantidad}}</div>
     <div mat-dialog-content>Precio: {{(producto$|async)?.Precio}}</div>
-    <div mat-dialog-content>Precio: {{(producto$|async)?.IDFactura}}</div>
 
     <div mat-dialog-actions>
         <button mat-button mat-dialog-close>No</button>
-        <button mat-button mat-dialog-close cdkFocusInitial >Sí</button>
+        <button mat-button mat-dialog-close cdkFocusInitial (click)="confirmarEliminacion()">Sí</button>
     </div>

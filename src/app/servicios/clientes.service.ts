@@ -13,6 +13,9 @@ export class ClientesService {
 
   obtenerCliente(cedula:string):Observable<ClienteI[]>{
     var data={Cedula:cedula};
-    return this.http.post<ClienteI[]>('/api/clientesFact',data);
+    return this.http.post<ClienteI[]>('/api/clienteFact',data);
+  }
+  clientes():Observable<ClienteI[]>{
+    return this.http.get<ClienteI[]>('/api/clienteFact');
   }
 }

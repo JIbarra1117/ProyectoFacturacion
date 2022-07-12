@@ -7,4 +7,5 @@ export interface ClienteI {
         Apellido2:string, 
         Telefono:string,
         Domicilio:string
+        
 }

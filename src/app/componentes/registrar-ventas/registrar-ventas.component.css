@@ -126,4 +126,13 @@ table {
   .money span{
     text-align: left;
   }
- 
+
+  .mat-elevation-z8 demo-table{
+    width: 100%;
+  }
+ .example-button-container3{
+  width: auto;
+  position: absolute; 
+  left: 1240px; 
+  top: 320px; 
+ }
