@@ -18,7 +18,7 @@ import {FacturaSeleccionadaComponent} from './dialogs/factura-seleccionada/factu
 import{EliminarProductoComponent}from'./dialogs/eliminar-producto/eliminar-producto.component';
 import{SeleccionarClientesComponent}from'./dialogs/seleccionar-clientes/seleccionar-clientes.component';
 import{SeleccionarProductosComponent}from'./dialogs/seleccionar-productos/seleccionar-productos.component';
-
+import { IngresarProductoComponent } from './dialogs/ingresar-producto/ingresar-producto.component';
 //Modules
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
@@ -38,13 +38,15 @@ import {JwtHelperService, JWT_OPTIONS} from '@auth0/angular-jwt';
     RegistrarVentasComponent,
     EliminarProductoComponent,
     SeleccionarClientesComponent,
-    SeleccionarProductosComponent
+    SeleccionarProductosComponent,
+    IngresarProductoComponent
   ],
   entryComponents:[
     FacturaSeleccionadaComponent,
     EliminarProductoComponent,
     SeleccionarClientesComponent,
-    SeleccionarProductosComponent],
+    SeleccionarProductosComponent,
+    IngresarProductoComponent],
   imports: [
     BrowserModule, 
     AppRoutingModule, 

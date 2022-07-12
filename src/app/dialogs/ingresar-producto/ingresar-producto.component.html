@@ -1,0 +1,9 @@
+<h1>Seleccionaste el producto {{producto.Producto}}</h1>
+<h2>Precio</h2><div style="width: 10px;"></div>{{producto.Precio}}<br>
+<mat-form-field>
+    <input matInput [(ngModel)]="cantidadSeleccionada" min="01" [max]="maximo()" type="number" placeholder="Selecciona la cantidad">
+</mat-form-field>
+<br>
+<mat-form-field>
+    <button mat-raised-button color="warn"  (click)="confirmaProducto()">Confirmar producto</button>
+</mat-form-field>

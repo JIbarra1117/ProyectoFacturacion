@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {JwtHelperService} from '@auth0/angular-jwt';
 import { Observable } from 'rxjs';
-import {Factura} from 'src/app/Datos/Facturas';
+import {Factura, FacturaAux} from 'src/app/Datos/Facturas';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +20,13 @@ export class FacturasService {
         console.log(error);
         return null;
       }
+    }
+
+    insertarProductosFactura(idFactura:number,idProd:number,cantidad:number){
+      var dato ={
+        IDFactura:idFactura,IDProducto:idProd,Cantidad:cantidad
+      }
+      return this.http.post<Factura[]>('api/insertarProductosFact',dato);
     }
 
     obtenerFacturasPagadas(Pagado:boolean):Observable<Factura[]>{
@@ -41,5 +48,24 @@ export class FacturasService {
     eliminarProductoFact(idFac:number,idProd:number):Observable<boolean>{
         var data={IDFactura:idFac,IDProducto:idProd};
         return this.http.post<boolean>('api/elimProdFact',data);
+    }
+
+    insertarFactura(factura:FacturaAux):Observable<string>{
+        return this.http.post<string>('api/insertarFactura',factura);
+    }
+
+    crearTransaccion(){
+      return this.http.get('api/transaccion');
+    }
+    
+    crearPuntoSeguro(){
+      return this.http.get('api/savePoint');
+    }
+    crearTransaccionRechazada(){
+      return this.http.get('api/rollback');
+    }
+
+    transaccionSegura(){
+      return this.http.get('api/guardado');
     }
 }

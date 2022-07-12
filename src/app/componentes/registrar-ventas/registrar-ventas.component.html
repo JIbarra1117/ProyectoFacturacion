@@ -7,7 +7,7 @@
         <mat-card-title>
             <h1 style="font-size: larger;">FACTURA </h1>
             <mat-divider></mat-divider>
-            <h2>#{{numFac().toString()}}</h2>
+            <h2>#{{numFac()}}</h2>
         </mat-card-title>
         <mat-card-content>
             <div class="tablaInfoFac">
@@ -47,20 +47,31 @@
             </div>
         </mat-card-content>
     </mat-card>
-    <div class="example-button-container" (click)="clickActuFact()">
+    <div class="example-button-container"  *ngIf="initFactura.IDFactura==0" >
+      <button (click)="crearFactura()" matTooltip="Crear factura" class="btnFacturar" mat-fab color="accent" aria-label="Example icon button with a bookmark icon">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+    <div class="example-button-container" (click)="clickActuFact()" *ngIf="initFactura.IDFactura!=0">
       <button matTooltip="Facturar" class="btnFacturar" mat-fab color="accent" aria-label="Example icon button with a bookmark icon">
         <mat-icon>bookmark</mat-icon>
       </button>
     </div>
-    <div class="example-button-container2">
-      <button matTooltip="Ingresar Productos" class="btnFacturar" mat-fab color="accent" aria-label="Example icon button with a bookmark icon" >
+    
+    <div class="example-button-container3" *ngIf="initCliente.Nombre.length>0 && initFactura.IDFactura!=0">
+      <button (click)="seleccionarProducto()" matTooltip="Ingresar Productos" class="btnFacturar" mat-fab color="accent" aria-label="Example icon button with a bookmark icon" >
         <mat-icon>shopping_bag</mat-icon>
       </button>
     </div>
 
-    <div class="example-button-container3">
-      <button matTooltip="Ingresar Cliente" class="btnFacturar" mat-fab color="accent" aria-label="Example icon button with a bookmark icon" >
+    <div class="example-button-container2" *ngIf="initCliente.Nombre.length==0">
+      <button (click)="ventanaCliente()" matTooltip="Ingresar Cliente" class="btnFacturar" mat-fab color="accent" aria-label="Example icon button with a bookmark icon" >
         <mat-icon>person_3</mat-icon>
+      </button>
+    </div>
+    <div class="example-button-container4" *ngIf="initFactura.IDFactura!=0">
+      <button (click)="cancelar()" matTooltip="Cancelar" class="btnFacturar" mat-fab color="warn" aria-label="Example icon button with a bookmark icon" >
+        <mat-icon>cancel</mat-icon>
       </button>
     </div>
     </div>
@@ -124,9 +135,9 @@
                     <ng-container matColumnDef="Acciones" style="width: 40%;">
                         <th mat-header-cell *matHeaderCellDef style="width: 160px;font-size: 18px;"> <b>Acción</b> </th>
                         <td mat-cell *matCellDef="let element" style="width: 160px;"> 
-                          <button mat-button color="accent" (click)="editarProducto(element)"><mat-icon>edit</mat-icon></button>
+                          <button matTooltip="Editar" mat-button color="accent" (click)="editarProducto(element)"><mat-icon>edit</mat-icon></button>
                           /
-                          <button mat-button color="warn" (click)="eliminarProducto(element)"><mat-icon>delete</mat-icon></button>
+                          <button matTooltip="Eliminar" mat-button color="warn" (click)="eliminarProducto(element)"><mat-icon>delete</mat-icon></button>
                         </td>
                       </ng-container>
                   

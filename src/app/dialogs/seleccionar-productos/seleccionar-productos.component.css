@@ -1,0 +1,145 @@
+.generalDiseña{
+
+    /* height: 250px; */
+    /*IMPORTANTE*/
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+.facturaDiseña{
+    width: 950px;
+}
+.productoDiseño{
+    width: 950px;
+}
+table {
+  width: 100%;
+}
+
+
+/* diseño de factura */
+.factura {
+    table-layout: fixed;
+  }
+  
+  .fact-info > div > h5 {
+    font-weight: bold;
+  }
+  
+  .factura > thead {
+    border-top: solid 3px #000;
+    border-bottom: 3px solid #000;
+  }
+  
+  .factura > thead > tr > th:nth-child(2), .factura > tbod > tr > td:nth-child(2) {
+    width: 300px;
+  }
+  
+  .factura > thead > tr > th:nth-child(n+3) {
+    text-align: right;
+  }
+  
+  .factura > tbody > tr > td:nth-child(n+3) {
+    text-align: right;
+  }
+  
+  .factura > tfoot > tr > th, .factura > tfoot > tr > th:nth-child(n+3) {
+    font-size: 20px;
+    text-align: right;
+  }
+  
+  .cond {
+    border-top: solid 2px #000;
+  }
+
+  /*Iconos*/
+  section {
+    display: table;
+  }
+  
+  .example-label {
+    display: table-cell;
+    font-size: 14px;
+    margin-left: 8px;
+    min-width: 120px;
+  }
+  
+  .example-button-row {
+    display: table-cell;
+    width: 490px;
+  }
+  
+  .example-button-row .mat-button-base {
+    margin: 8px 8px 8px 0;
+  }
+  
+  .example-flex-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .example-button-container {
+    width: auto;
+    position: absolute; 
+    left: 1240px; 
+    top: 80px; 
+  }
+  .example-button-container2 {
+    
+    position: absolute; 
+    left: 1240px; 
+    top: 200px; 
+  }
+  ._espacio{
+    height: 20px;
+  }
+
+
+  .demo-table {
+    width: 100%;
+  }
+  
+  .mat-row .mat-cell {
+    border-bottom: 1px solid transparent;
+    border-top: 1px solid transparent;
+    cursor: pointer;
+  }
+  
+
+  
+  .dinero span{
+    text-align: left;
+    left: 20px;
+  }
+
+  .dinero label{
+    text-align: right;
+    right: 20px;
+  }
+
+  .money{
+    color: #85bb65;
+    text-align: right;
+    right: 15px;
+  }
+  .money span{
+    text-align: left;
+  }
+
+  .mat-elevation-z8 demo-table{
+    width: 100%;
+  }
+ .example-button-container3{
+  width: auto;
+  position: absolute; 
+  left: 1240px; 
+  top: 320px; 
+ }
+
+ .example-button-container4{
+  width: auto;
+  position: absolute; 
+  left: 170px; 
+  top: 1px; 
+ }

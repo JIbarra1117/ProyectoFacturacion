@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {JwtHelperService} from '@auth0/angular-jwt';
 import { Observable } from 'rxjs';
-import { EmpleadoI } from '../Datos/claseUsuarios';
+import { EmpleadoCompletoI, EmpleadoI, idAux } from '../Datos/claseUsuarios';
 
 @Injectable({
   providedIn: 'root'
@@ -36,4 +36,5 @@ export class AuthService {
     };
     return this.http.post<EmpleadoI[]>('/api/empleado',dato);    
   }
+
 }

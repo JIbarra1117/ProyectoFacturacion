@@ -9,32 +9,32 @@
     <div class="hijo"><table mat-table [dataSource]="dataSource" matSort>
   
       <!-- ID Column -->
-      <ng-container matColumnDef="Cedula">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header style="text-align: center;"> No. Factura </th>
-        <td mat-cell *matCellDef="let row" style="text-align: center;"> {{row.IDFactura}} </td>
+      <ng-container matColumnDef="Cedula" matTooltip="Seleccionar">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header style="text-align: center;"> Cedula </th>
+        <td mat-cell *matCellDef="let row" style="text-align: center;"> {{row.Cedula}} </td>
       </ng-container>
   
       <!-- Progress Column -->
       <ng-container matColumnDef="Nombres">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header > Cedula Empleado </th>
-        <td mat-cell *matCellDef="let row"> {{row.IDTrabajador}} </td>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header > Nombres </th>
+        <td mat-cell *matCellDef="let row"> {{row.Nombre}} </td>
       </ng-container>
   
       <!-- Name Column -->
       <ng-container matColumnDef="Apellidos">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Cedula cliente </th>
-        <td mat-cell *matCellDef="let row"> {{row.IDCliente}} </td>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Apellidos </th>
+        <td mat-cell *matCellDef="let row"> {{row.Apellido}} </td>
       </ng-container>
   
       <!-- Fruit Column -->
       <ng-container matColumnDef="Teléfono" >
-        <th mat-header-cell *matHeaderCellDef mat-sort-header  style="width: 250px;" > Fecha </th>
-        <td mat-cell *matCellDef="let row">  </td>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header  style="width: 250px;" > Teléfono </th>
+        <td mat-cell *matCellDef="let row">  {{row.Telefono}}</td>
       </ng-container>  
       <!-- Fruit Column -->
       <ng-container matColumnDef="Domicilio">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Hora </th>
-        <td mat-cell *matCellDef="let row">  </td>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Domicilio </th>
+        <td mat-cell *matCellDef="let row"> {{row.Domicilio}} </td>
       </ng-container>  
       
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -52,4 +52,7 @@
   
     <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
   </div>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button mat-dialog-close style="text-align: center;">Cerrar</button>
   </div>

@@ -109,3 +109,15 @@ export interface EmpleadoI{
   Rol:string;
   
 }
+
+export interface EmpleadoCompletoI{
+  ID:number,
+  Nombre:string,
+  Apellido:string,
+  Cedula:string,
+  Rol:string,
+  
+}
+export interface idAux{
+  ID:number
+}

@@ -8,7 +8,6 @@ import { ClienteI } from '../Datos/claseCliente';
   providedIn: 'root'
 })
 export class ClientesService {
-
   constructor(private http:HttpClient) { }
 
   obtenerCliente(cedula:string):Observable<ClienteI[]>{
@@ -16,6 +15,6 @@ export class ClientesService {
     return this.http.post<ClienteI[]>('/api/clienteFact',data);
   }
   clientes():Observable<ClienteI[]>{
-    return this.http.get<ClienteI[]>('/api/clienteFact');
+    return this.http.get<ClienteI[]>('/api/clientes');
   }
 }

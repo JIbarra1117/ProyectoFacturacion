@@ -12,6 +12,17 @@ export interface Factura{
     Total:number;
     Pagado:boolean;
 }
+export interface FacturaAux{
+    IDFactura:number;
+    IDCliente:string;
+    IDTrabajador:string;
+    Fecha:string;
+    Hora: string;
+    Subtotal:number;
+    Iva:0.12;
+    Total:number;
+    Pagado:boolean;
+  }
 
 export class OperacionesFacturas{
      public facturasPagadas!:Factura[];
