@@ -11,7 +11,7 @@ import { FacturasService } from 'src/app/servicios/facturas.service';
 })
 export class EliminarProductoComponent implements OnInit {
 
-  initProducto:ProductoFactI={IDFactura:0,IDProducto:0,Cantidad:0,Precio:0,Producto:''};
+  initProducto:ProductoFactI={IDFactVenta:0,IDFactura:0,IDProducto:0,Cantidad:0,Precio:0,Producto:''};
   constructor(private prod:FacturaService,
     private factProd:FacturasService,
     private router:Router) { }
@@ -25,7 +25,7 @@ export class EliminarProductoComponent implements OnInit {
     });
   }
   confirmarEliminacion(){
-    this.factProd.eliminarProductoFact(this.initProducto.IDFactura, this.initProducto.IDProducto)
+    this.factProd.eliminarProductoFact(this.initProducto.IDFactVenta, this.initProducto.IDProducto)
     .subscribe((val:boolean)=>{
       console.log(this.initProducto.IDFactura+':'+this.initProducto.IDProducto);
       console.log(val);

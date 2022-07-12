@@ -7,10 +7,10 @@ import { ClienteI } from 'src/app/Datos/claseCliente';
 
 const initFactura:Factura={IDFactura:0,IDCliente:'',IDTrabajador:'',Fecha:new Date(Date.now()),Hora:{hours:new Date().getHours(),minutes:new Date().getMinutes()},Pagado:false,Total:0,Subtotal:0,Iva:0.12};
 const initValidarFactura = false;
-const initProducto:ProductoFactI={IDFactura:0,IDProducto:0,Cantidad:0,Precio:0,Producto:''};
+const initProducto:ProductoFactI={IDFactVenta:0,IDFactura:0,IDProducto:0,Cantidad:0,Precio:0,Producto:''};
 const initCliente:ClienteI={Apellido:'', Apellido2:'',Cedula:'',Domicilio:'',Nombre:'',Nombre2:'',Telefono:''}
 const initProductoGeneral:ProductoI={IDFactVenta:0,IDProducto:0,Imagen:0,Precio:0,Producto:'',Stock:0}
-const initProductoIngresar:ProductoFactI={IDFactura:0,IDProducto:0,Cantidad:0,Precio:0,Producto:''};
+const initProductoIngresar:ProductoFactI={IDFactVenta:0,IDFactura:0,IDProducto:0,Cantidad:0,Precio:0,Producto:''};
 const initNumFactProd:number=0;
 @Injectable({
   providedIn: 'root'

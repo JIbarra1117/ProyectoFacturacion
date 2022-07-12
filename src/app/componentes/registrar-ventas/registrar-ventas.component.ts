@@ -55,7 +55,7 @@ export class RegistrarVentasComponent implements OnInit {
   comprobarEdicion = false;
   validarCliente=true;
   //Variable para la datatable de productos
-  displayedColumns: string[] = ['IDProducto','Producto', 'Cantidad', 'Precio', 'Importe','Acciones'];
+  displayedColumns: string[] = ['IDFactVentas','IDProducto','Producto', 'Cantidad', 'Precio', 'Importe','Acciones'];
   dataSource = new MatTableDataSource<ProductoFactI>([]);
   //ValidarObservables
   dataValidadroa = true;
@@ -183,7 +183,7 @@ export class RegistrarVentasComponent implements OnInit {
   obtenerProductos() {
     return this.productosFac.obtenerProductosFactura(this.initFactura.IDFactura).subscribe((productos: ProductoFactI[]) => {
       if (this.dataValidadroa) {
-        console.log(productos);
+        //console.log(productos);
         this.listaProductos = productos;
         this.dataSource.data = productos;
       } else {
@@ -349,15 +349,15 @@ export class RegistrarVentasComponent implements OnInit {
     else
     return '';
   }
-  eliminarProducto(a:ProdAuxI){
-    var data:ProductoFactI={ IDFactura:this.initFactura.IDFactura,IDProducto:a.IDProducto,Cantidad:a.Cantidad,Precio:a.Precio,Producto:a.Producto}
-    this.recibirFact.setProducto(data);
+  eliminarProducto(a:ProductoFactI){
+    //var data:ProductoFactI={ IDFactVenta:0,IDFactura:this.initFactura.IDFactura,IDProducto:a.IDProducto,Cantidad:a.Cantidad,Precio:a.Precio,Producto:a.Producto}
+    this.recibirFact.setProducto(a);
     console.log(a);
     this.openDialog('0','0');
     //this.recibirFact.
   }
   editarProducto(a:ProdAuxI){
-    var data:ProductoFactI={ IDFactura:0,IDProducto:a.IDProducto,Cantidad:a.Cantidad,Precio:a.Precio,Producto:a.Producto}
+    var data:ProductoFactI={ IDFactVenta:0,IDFactura:0,IDProducto:a.IDProducto,Cantidad:a.Cantidad,Precio:a.Precio,Producto:a.Producto}
     this.recibirFact.setProducto(data);
     console.log(a);
     this.openDialogProducto('0','0');
@@ -449,6 +449,7 @@ export class RegistrarVentasComponent implements OnInit {
 }
 
 export interface ProdAuxI{
+  IDFacVentas:number;
   IDProducto:number,
   Producto:string,
   Cantidad:number,
